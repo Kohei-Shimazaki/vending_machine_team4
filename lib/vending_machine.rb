@@ -28,12 +28,14 @@ class VendingMachine
   end
 
   def restock(name, stock)
-    if drink = @products.find{|product| product.name == name}
-      drink.restock(stock)
-    else
-      puts "#{name}の値段はいくらですか？"
-      price = gets.chomp!.to_i
-      @products.push(Drink.new(name, price, stock))
+    if @slot_money == 0
+      if drink = @products.find{|product| product.name == name}
+        drink.restock(stock)
+      else
+        puts "#{name}の値段はいくらですか？"
+        price = gets.chomp!.to_i
+        @products.push(Drink.new(name, price, stock))
+      end
     end
   end
 
@@ -77,6 +79,8 @@ end
 #vm.slot(100)
 #vm.slot(10)
 #vm.slot(10)
+#p vm.able_to_sell_lists
+#vm.restock("コーラ", 5)
 #p vm.able_to_sell_lists
 #vm.sell("サイダー")
 #vm.sell("コーラ")
