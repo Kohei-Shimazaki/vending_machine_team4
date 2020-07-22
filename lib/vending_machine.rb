@@ -67,18 +67,7 @@ class VendingMachine
       @slot_money -= choose.price
       choose.stock -= 1 #在庫を1減らす
       puts "購入：#{choose.name}, 釣り銭：#{@slot_money}円"
+      able_to_sell_lists
     end
   end
 end
-
-vm = VendingMachine.new
-vm.slot(100)
-vm.slot(10)
-vm.slot(10)
-
-#vm.restock("コーラ", 5)
-#p vm.able_to_sell_lists
-#vm.sell("サイダー")
-vm.sell("コーラ")
-#p vm.products
-#vm.return_money
