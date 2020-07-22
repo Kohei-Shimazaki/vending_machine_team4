@@ -66,7 +66,7 @@ class VendingMachine
       @earnings += choose.price
       @slot_money -= choose.price
       choose.stock -= 1 #在庫を1減らす
-      puts "購入：#{choose.name}, 釣り銭：#{@slot_money}円"
+      puts "購入：#{choose.name}, 残金：#{@slot_money}円"
       able_to_sell_lists
     end
   end

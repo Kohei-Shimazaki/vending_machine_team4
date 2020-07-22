@@ -63,7 +63,7 @@ class VendingMachineTest < Minitest::Test
     vm.slot(100)
     vm.slot(10)
     vm.slot(10)
-    assert_output("購入：コーラ, 釣り銭：0円\n") {vm.sell("コーラ")}
+    assert_output("購入：コーラ, 残金：0円\n") {vm.sell("コーラ")}
     assert_equal 120, vm.earnings
     assert_equal 4, vm.products.find{|product| product.name == "コーラ"}.stock
   end
